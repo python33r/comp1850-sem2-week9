@@ -1,3 +1,8 @@
+#ifndef _NODE_H_
+#define _NODE_H_
+
+#include "node_structures.h"
+
 Data* createData(int);
 Node* createNode(Data*);
 
@@ -7,3 +12,5 @@ void freeNodes(Node*);
 void traverseI(Node*);
 void traverseW(Node*);
 void traverseR(Node*);
+
+#endif   // _NODE_H_

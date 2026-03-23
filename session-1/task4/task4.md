@@ -1,19 +1,18 @@
-
 # Queue data structure
 
-Queue: { Node *back, Node *front, int size }
+    Queue: { Node *back, Node *front, int size }
 
 # Queue functions
 
-## Memory management: 
+## Memory management:
 
 `createQueue()` + Node operations
 
-## Queue operations: 
+## Queue operations:
 
 `join()` and `leave()`
 
-## Display: 
+## Display:
 
 Node traversal operation 
 
