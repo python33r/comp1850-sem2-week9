@@ -27,8 +27,8 @@ Node* createNode(Data* data) {
  */
 void freeNode(Node* node) {
     if (node != NULL) {
-        free(node->data);         // free Data first
-        free(node);               // then the Node
+        free(node->data);       // free Data first
+        free(node);             // then the Node
     }
 }
 
@@ -48,7 +48,7 @@ void freeNodes(Node* node) {
  */
 void traverseI(Node* start) {  
     for (Node* node = start; node != NULL; node = node->next) {
-        printf(" %d",node->data->value);
+        printf(" %d", node->data->value);
     }
     printf("\n");
 }
@@ -57,17 +57,22 @@ void traverseI(Node* start) {
  * while-based traversal
  */
 void traverseW(Node* node) {
-
-    // your implementation
-
+    while (node != NULL) {
+        printf(" %d", node->data->value);
+        node = node->next;
+    }
+    printf("\n");
 }
 
 /*
  * recursive traversal
  */
 void traverseR(Node* node) {  
+    if (node == NULL) {
+        printf("\n");
+        return;
+    }
 
-    // remember the golden rules
-    // base case, recursive call, approach the base case
-
+    printf(" %d", node->data->value);
+    traverseR(node->next);
 }
