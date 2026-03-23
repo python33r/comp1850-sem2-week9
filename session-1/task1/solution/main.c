@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "node_structures.h"
 #include "node.h"
 
 int main(void) {

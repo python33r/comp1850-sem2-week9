@@ -1,6 +1,8 @@
 #ifndef _NODE_H_
 #define _NODE_H_
 
+#include "node_structures.h"
+
 Data* createData(int);
 Node* createNode(Data*);
 
