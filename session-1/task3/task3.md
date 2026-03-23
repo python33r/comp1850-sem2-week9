@@ -1,25 +1,24 @@
-
 # Stack
 
 ## Dynamic array data structure
 
-Data: { int value }
+    Data: { int value }
 
-Stack: { int blockSize, int size, Data *data[], int top }
+    Stack: { int blockSize, int size, Data *data[], int top }
 
 ## Stack functions
 
-### Memory management: 
+### Memory management:
 
 create data structures, reallocate data structures, free data structures
 
-### Stack operations: 
+### Stack operations:
 
-push() and pop()
+`push()` and `pop()`
 
-### Display: 
+### Display:
 
-Traversal operations are now a simple for-loop
+Traversal operations are now a simple `for` loop
 
 ## Tasks
 

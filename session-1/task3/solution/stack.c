@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "stack_structures.h"
 #include "stack.h"
 
 /*
@@ -62,9 +61,15 @@ Data *pop(Stack *stack) {
  * display stack data - traverse list
  */
 void displayStack(Stack* stack) {
+    if (stack->top == 0) {
+        printf(" <none>\n");
+        return;
+    }
+
     for (int k = 0; k < stack->top; ++k) {
         printf(" %d", stack->data[k]->value);
     }
+
     printf("\n");
 }
 

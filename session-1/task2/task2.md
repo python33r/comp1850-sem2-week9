@@ -3,7 +3,7 @@
 
 ## Stack data structure
 
-`Stack: { Node *top, int size }`
+    Stack: { Node *top, int size }
 
 ## Stack operations
 
