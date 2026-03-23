@@ -3,7 +3,7 @@
 
 ## Stack data structure
 
-Stack: { Node *top, int size }
+`Stack: { Node *top, int size }`
 
 ## Stack operations
 
@@ -14,7 +14,7 @@ Stack: { Node *top, int size }
 ### 1. Inspect the `Makefile`
 - Compile with `make`
 
-### 2. Inspect the code 
+### 2. Inspect the code
 - inspect the implementation of the stack functions
     - sketch how `push()` and `pop()` modify the data structure and `top` pointer
 - run the code and inspect the output
@@ -29,4 +29,3 @@ Stack: { Node *top, int size }
 - do we have memory leaks?
 - ensure you have tested `pop()`
     - if you `pop()` data it is detached from the stack and must be separately deallocated with `free()`
-    

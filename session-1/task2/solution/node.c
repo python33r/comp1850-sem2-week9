@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "node_structures.h"
 #include "node.h"
 
 /*
@@ -27,8 +26,8 @@ Node* createNode(Data* data) {
  */
 void freeNode(Node* node) {
     if (node != NULL) {
-        free(node->data);         // free Data first
-        free(node);               // then the Node
+        free(node->data);       // free Data first
+        free(node);             // then the Node
     }
 }
 
@@ -48,7 +47,7 @@ void freeNodes(Node* node) {
  */
 void traverseI(Node* start) {  
     for (Node* node = start; node != NULL; node = node->next) {
-        printf(" %d",node->data->value);
+        printf(" %d", node->data->value);
     }
     printf("\n");
 }
@@ -57,16 +56,22 @@ void traverseI(Node* start) {
  * while-based traversal
  */
 void traverseW(Node* node) {
-
-    // your implementation from Task 1
-
+    while (node != NULL) {
+        printf(" %d", node->data->value);
+        node = node->next;
+    }
+    printf("\n");
 }
 
 /*
  * recursive traversal
  */
 void traverseR(Node* node) {  
+    if (node == NULL) {
+        printf("\n");
+        return;
+    }
 
-    // your implementation from Task 1
-
+    printf(" %d", node->data->value);
+    traverseR(node->next);
 }

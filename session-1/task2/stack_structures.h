@@ -1,5 +1,4 @@
-
 typedef struct _stack {
-    struct _node *top;
+    Node* top;
     int size;
 } Stack;
