@@ -3,21 +3,20 @@
 
 ## Dynamic array data structure
 
-Data: { int value }
-
-List: { int blockSize, int size, Data *data[], int length }
+    Data: { int value }
+    List: { int blockSize, int size, Data *data[], int length }
 
 ## List functions
 
-### Memory management: 
+### Memory management:
 
 create data structures, reallocate data structures, free data structures
 
-### List operations: 
+### List operations:
 
 `insert()` and `delete()`
 
-### Display: 
+### Display:
 
 `displayList()` Traversal operation is a simple for-loop
 

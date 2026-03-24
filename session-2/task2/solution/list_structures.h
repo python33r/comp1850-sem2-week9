@@ -1,3 +1,6 @@
+#ifndef _LIST_STRUCTURES_H_
+#define _LIST_STRUCTURES_H_
+
 typedef struct _data {
     int value;
 } Data;
@@ -5,6 +8,8 @@ typedef struct _data {
 typedef struct _list {
     int blockSize;          // default block-size
     int size;               // currently allocated size
-    struct _data** data;    // list array of Data*
+    Data** data;            // array of Data*
     int length;             // length of actual list
 } List;
+
+#endif   // _LIST_STRUCTURES_H_

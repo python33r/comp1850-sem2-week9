@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "list_structures.h"
 #include "list.h"
 
 /*
@@ -58,16 +57,25 @@ void insert(List* list, Data* new, int loc) {
  */
 Data* delete(List* list, int loc) {
     Data* item = NULL;
-    
-    // check for empty List
 
-    // check for invalid loc
+    if (list->length > 0 && loc >= 0 && loc < list->length) {
+        // list is not empty and loc is valid, so we can begin by grabbing
+        // a pointer to the item we are deleting, so we can return it
+        item = list->data[loc];
 
-    // extract Data item
-    
-    // shuffle list down to remove the gap
+        // shift everything from loc onwards down by one position
+        for (int k = loc; k < list->length - 1; ++k) {
+            list->data[k] = list->data[k + 1];
+        }
 
-    // decrease list length
+        // previous step leaves us with two pointers to the same item,
+        // representing the old and new ends of the list; we need to null
+        // out the former to prevent a potential 'double free' issue
+        list->data[list->length - 1] = NULL;
+
+        // finally we update the list length
+        list->length--;
+    }
 
     return item;
 }
@@ -76,13 +84,16 @@ Data* delete(List* list, int loc) {
  * display List data - traverse list from front to back
  */
 void displayList(List* list) {
-    printf("List length %d\n", list->length);
+    printf("Length = %d, data = [", list->length);
 
     for (int k = 0; k < list->length; ++k) {
-        printf(" %d", list->data[k]->value);
+        printf("%d", list->data[k]->value);
+        if (k != list->length - 1) {
+            printf(", ");
+        }
     }
 
-    printf("\n");
+    printf("]\n");
 }
 
 /*

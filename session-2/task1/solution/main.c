@@ -20,6 +20,7 @@ int main(void) {
     printf("Adding some more nodes...\n");
     addNode(list, list->head, 2);
     addNode(list, list->head->next, 3);
+
     traverseI(list->head);
 
     printf("Removing a node...\n");
