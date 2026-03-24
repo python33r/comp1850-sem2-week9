@@ -1,13 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "node_structures.h"
 #include "node.h"
 
 /*
  * create Data item
  */
 Data* createData(int val) {
-    Data *new = malloc(sizeof(Data));
+    Data* new = malloc(sizeof(Data));
     new->value = val;
     return new;
 }
@@ -27,18 +26,18 @@ Node* createNode(Data* data) {
  */
 void freeNode(Node* node) {
     if (node != NULL) {
-        free(node->data);         // free Data first
-        free(node);               // then the Node
+        free(node->data);       // free Data first
+        free(node);             // then the Node
     }
 }
 
 /*
  * free all nodes in the linked structure
  */
-void freeNodes(Node *node) {
+void freeNodes(Node* node) {
     while (node != NULL) {
         Node* next = node->next;
-        freeNode(node);           // note that we have to retain a pointer to the next node before free'ing
+        freeNode(node);         // note: we have to retain a pointer to the next node before free'ing
         node = next;
     }
 }
@@ -46,7 +45,7 @@ void freeNodes(Node *node) {
 /*
  * iteration-based traversal 
  */
-void traverseI(Node* start) {
+void traverseI(Node* start) {  
     for (Node* node = start; node != NULL; node = node->next) {
         printf(" %d", node->data->value);
     }
@@ -57,12 +56,22 @@ void traverseI(Node* start) {
  * while-based traversal
  */
 void traverseW(Node* node) {
-    // implement from session 1 task 1
+    while (node != NULL) {
+        printf(" %d", node->data->value);
+        node = node->next;
+    }
+    printf("\n");
 }
 
 /*
  * recursive traversal
  */
-void traverseR(Node* node) {
-    // implement from session 1 task 1
+void traverseR(Node* node) {  
+    if (node == NULL) {
+        printf("\n");
+        return;
+    }
+
+    printf(" %d", node->data->value);
+    traverseR(node->next);
 }

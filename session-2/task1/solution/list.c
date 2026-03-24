@@ -1,15 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "node_structures.h"
 #include "node.h"
-#include "list_structures.h"
 #include "list.h"
 
 /*
  * allocate and initialise a list structure
  */
 List* createList(void) {
-    List *new = malloc(sizeof(List));
+    List* new = malloc(sizeof(List));
     new->head = NULL;
     new->size = 0;
     return new;

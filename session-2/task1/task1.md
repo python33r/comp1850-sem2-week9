@@ -1,9 +1,8 @@
-
 # Linked-list
 
 ## List data structure
 
-List: { Node *head, int size }
+    List: { Node *head, int size }
 
 ## List operations
 
@@ -14,7 +13,7 @@ List: { Node *head, int size }
 ### 1. Inspect the `Makefile`
 - Compile with `make`
 
-### 2. Inspect the code 
+### 2. Inspect the code
 - inspect the implementation of the list functions
     - check the modifications to the list in the `addNode()` and `removeNode()` function
     - can you match them to the diagram on the slides?

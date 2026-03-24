@@ -1,5 +1,4 @@
-
 typedef struct _list {
-    struct _node *head;
+    struct _node* head;
     int size;
 } List;
