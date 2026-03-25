@@ -1,4 +1,3 @@
-
 # Binary tree
 
 ## Tree data structure
@@ -51,4 +50,3 @@ Implement the function `deallocateTree()`
 
 What would happen if we deallocated with preorder or inorder traversal?
 - Trace an example on paper to illustrate your answer. 
-
