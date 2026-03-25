@@ -63,15 +63,10 @@ Data* delete(List* list, int loc) {
         // a pointer to the item we are deleting, so we can return it
         item = list->data[loc];
 
-        // shift everything from loc onwards down by one position
+        // then we shift everything from loc onwards down by one position
         for (int k = loc; k < list->length - 1; ++k) {
             list->data[k] = list->data[k + 1];
         }
-
-        // previous step leaves us with two pointers to the same item,
-        // representing the old and new ends of the list; we need to null
-        // out the former to prevent a potential 'double free' issue
-        list->data[list->length - 1] = NULL;
 
         // finally we update the list length
         list->length--;
@@ -100,7 +95,7 @@ void displayList(List* list) {
  * free dynamic array data
  */
 void freeList(List* list) {
-    for (int k = 0; k < list->size; ++k) {
+    for (int k = 0; k < list->length; ++k) {
         free(list->data[k]);  // free List Data item
     }
     free(list->data);         // free List Data array
