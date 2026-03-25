@@ -3,9 +3,8 @@
 
 ## Tree data structure
 
-Node: { Data *data, Node *child[2] }
-
-Tree: { Node *root, int size }
+    Node: { Data *data, Node *child[2] }
+    Tree: { Node *root, int size }
 
 ## Tree operations
 
@@ -16,7 +15,7 @@ Tree: { Node *root, int size }
 ### 1. Use the `Makefile`
 - Compile with `make` and verify you can build the application
 
-### 2. Inspect the code 
+### 2. Inspect the code
 - the data structures are adapted for the tree 
 - the `main()` function creates tree nodes and links them into a tree structure
     - sketch the structure that is created on paper

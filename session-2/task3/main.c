@@ -1,14 +1,12 @@
-
 #include <stdio.h>
 #include <stdlib.h>
-
 #include "tree_node.h"
 #include "tree_structure.h"
 #include "tree.h"
 
-int main( void ) {
-    Tree *tree = makeTree();
-    Node *p;
+int main(void) {
+    Tree* tree = makeTree();
+    Node* p;
     
     // create a tree
     tree->root = makeNode(makeData(1));
@@ -23,10 +21,10 @@ int main( void ) {
     tree->size = 6;
 
     // traverse to print node data
-    traversePre( tree->root );
+    traversePre(tree->root);
 
     // free memory
-    deallocateTree( tree->root );
+    deallocateTree(tree->root);
     free(tree);
 
     return 0;

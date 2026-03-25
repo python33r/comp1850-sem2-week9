@@ -1,5 +1,4 @@
-
 typedef struct _tree {
-    Node *root;
+    Node* root;
     int size;
 } Tree;

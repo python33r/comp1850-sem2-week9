@@ -1,6 +1,5 @@
-
 CC = gcc
-CFLAGS = -Wall -Wextra 
+CFLAGS = -Wall -Wextra -g
 
 SRC = main.c tree.c
 OBJ = $(SRC:.c=.o)
@@ -14,4 +13,3 @@ $(EXE): $(OBJ)
 
 clean:
 	rm -f $(EXE) $(OBJ)
-

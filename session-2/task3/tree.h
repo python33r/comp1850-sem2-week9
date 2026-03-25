@@ -1,11 +1,10 @@
+Tree* makeTree(void);
+Node* makeNode(Data*);
+Data* makeData(int);
 
-Tree *makeTree( void );
-Node *makeNode( Data *data );
-Data *makeData( int val );
+void traversePre(Node*);
+void traversePost(Node*);
+void traverseIn(Node*);
 
-void traversePre( Node *loc );
-void traversePost( Node *loc );
-void traverseIn( Node *loc );
-
-void freeNode( Node *node );
-void deallocateTree( Node *loc );
+void freeNode(Node*);
+void deallocateTree(Node*);
