@@ -5,7 +5,7 @@
 /*
  * allocate and initialise a tree structure
  */
-Tree* makeTree(void) {
+Tree* alloc_tree(void) {
     Tree* new = malloc(sizeof(Tree));
     new->root = NULL;
     new->size = 0;
@@ -15,73 +15,54 @@ Tree* makeTree(void) {
 /*
  * allocate and initialise a tree node
  */
-Node* makeNode(Data* data) {
-    Node *new = malloc(sizeof(Node));
-    new->data = data;
+TreeNode* alloc_tree_node(int value) {
+    TreeNode* new = malloc(sizeof(TreeNode));
+    new->value = value;
     new->child[0] = NULL;
     new->child[1] = NULL;
     return new;
 }
 
 /*
- * allocate and initialise tree node data
+ * recursive traversal in pre-order
  */
-Data* makeData(int val) {
-    Data* new = malloc(sizeof(Data));
-    new->value = val;
-    return new;
-}
-
-/*
- * deallocate a tree node and data
- */
-void freeNode(Node* node) {
+void traverse_pre(TreeNode* node) {
     if (node != NULL) {
-        free(node->data);
+        printf(" Node %d\n", node->value);
+        traverse_pre(node->child[0]);
+        traverse_pre(node->child[1]);
+    }
+}
+
+/*
+ * recursive traversal in post-order
+ */
+void traverse_post(TreeNode* node) {
+    if (node != NULL) {
+        traverse_post(node->child[0]);
+        traverse_post(node->child[1]);
+        printf(" Node %d\n", node->value);
+    }
+}
+
+/*
+ * recursive traversal in in-order
+ */
+void traverse_in(TreeNode* node) {
+    if (node != NULL) {
+        traverse_in(node->child[0]);
+        printf(" Node %d\n", node->value);
+        traverse_in(node->child[1]);
+    }
+}
+
+/*
+ * free tree nodes using postorder traversal
+ */
+void free_tree_nodes(TreeNode* node) {
+    if (node != NULL) {
+        free_tree_nodes(node->child[0]);
+        free_tree_nodes(node->child[1]);
         free(node);
-    }
-}
-
-/*
- * recursive traversal in preorder
- */
-void traversePre(Node* loc) {
-    if (loc != NULL) {
-        printf(" Node %d\n", loc->data->value);
-        traversePre(loc->child[0]);
-        traversePre(loc->child[1]);
-    }
-}
-
-/*
- * recursive traversal in postorder
- */
-void traversePost(Node* loc) {
-    if (loc != NULL) {
-        traversePost(loc->child[0]);
-        traversePost(loc->child[1]);
-        printf(" Node %d\n", loc->data->value);
-    }
-}
-
-/*
- * recursive traversal in inorder
- */
-void traverseIn(Node* loc) {
-    if (loc != NULL) {
-        traverseIn(loc->child[0]);
-        printf(" Node %d\n", loc->data->value);
-        traverseIn(loc->child[1]);
-    }
-}
-
-/*
- * deallocate tree nodes using postorder traversal
- */
-void deallocateTree(Node *loc) {
-    if (loc != NULL) {
-        deallocateTree(loc->child[0]);
-        deallocateTree(loc->child[1]);
-        freeNode(loc);
     }
 }

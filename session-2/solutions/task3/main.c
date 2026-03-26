@@ -1,44 +1,48 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "tree_node.h"
-#include "tree_structure.h"
 #include "tree.h"
 
 int main(void) {
     // create tree and root node
 
-    Tree* tree = makeTree();
-    tree->root = makeNode(makeData(1));
+    Tree* tree = alloc_tree();
+    tree->root = alloc_tree_node(1);
+    tree->size++;
     
     // create child nodes
 
-    Node* p = tree->root;
-    p->child[0] = makeNode(makeData(2));
-    p->child[1] = makeNode(makeData(3));
+    TreeNode* p = tree->root;
+    p->child[0] = alloc_tree_node(2);
+    tree->size++;
+    p->child[1] = alloc_tree_node(3);
+    tree->size++;
 
     p = tree->root->child[0];
-    p->child[0] = makeNode(makeData(4));
-    p->child[1] = makeNode(makeData(5));
+    p->child[0] = alloc_tree_node(4);
+    tree->size++;
+    p->child[1] = alloc_tree_node(5);
+    tree->size++;
 
     p = tree->root->child[1];
-    p->child[1] = makeNode(makeData(6));
+    p->child[1] = alloc_tree_node(6);
+    tree->size++;
 
-    tree->size = 6;
+    printf("Tree size (no. of nodes) = %d\n\n", tree->size);
 
     // traverse to print node data
 
     printf("Pre-order traversal:\n");
-    traversePre(tree->root);
+    traverse_pre(tree->root);
 
     printf("\nPost-order traversal:\n");
-    traversePost(tree->root);
+    traverse_post(tree->root);
 
     printf("\nIn-order traversal:\n");
-    traverseIn(tree->root);
+    traverse_in(tree->root);
 
     // free memory
 
-    deallocateTree(tree->root);
+    free_tree_nodes(tree->root);
     free(tree);
 
     return 0;
